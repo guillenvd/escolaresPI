@@ -25,15 +25,9 @@
       <div class="nav-collapse">
         <ul class="nav pull-right">
           <li class="dropdown">
-          		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> Account <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="javascript:;">Settings</a></li>
-              <li><a href="javascript:;">Help</a></li>
-            </ul>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-off"></i> Account <b class="caret"></b></a>
           </li>
-
         </ul>
-
       </div>
       <!--/.nav-collapse --> 
     </div>
@@ -46,12 +40,12 @@
   <div class="subnavbar-inner">
     <div class="container">
       <ul class="mainnav">
-        <li class="active"><a href="index.html"><i class="icon-dashboard"></i><span>Turno</span> </a> </li>
-        <li><a onclick="loadlista();"><i class="icon-list-alt"></i><span>Lista De Espera</span> </a> </li>
-        <li><a onclick="loadalta();"><i class="icon-group"></i><span>Alta de Espera</span> </a></li>
-        <li><a onclick="loadestadisticas();"><i class="icon-bar-chart"></i><span>Estadisticas</span> </a> </li>
-        <li><a onclick="loadalumnos();"><i class="icon-user"></i><span>Almnos</span> </a> </li>
-        <li><a onclick="loadguia();"><i class="icon-question-sign"></i><span>Guía</span> </a> </li>
+        <li id="1" class="active"><a onclick="loadhome();"><i class="icon-dashboard"></i><span>Turno</span> </a> </li>
+        <li id="2"><a onclick="loadlista();"><i class="icon-list-alt"></i><span>Lista De Espera</span> </a> </li>
+        <li id="3"><a onclick="loadalta();"><i class="icon-group"></i><span>Alta de Espera</span> </a></li>
+        <li id="4"><a onclick="loadestadisticas();"><i class="icon-bar-chart"></i><span>Estadisticas</span> </a> </li>
+        <li id="5"><a onclick="loadalumnos();"><i class="icon-user"></i><span>Almnos</span> </a> </li>
+        <li id="6"><a onclick="loadguia();"><i class="icon-question-sign"></i><span>Guía</span> </a> </li>
       </ul>
     </div>
     <!-- /container --> 
@@ -62,11 +56,8 @@
 <div class="main">
   <div class="main-inner">
     <div class="container" id="content">
-      <div style="padding-bottom: 70px; text-align: center;">
-            <h1>INSTITUTO TECNOLOGICO DE ENSENADA, B. C.</h1>
-            <h3><strong>EscolaresPi</strong>: Sistema para Alumnos de Nuevo Ingreso</h3>     
-            <img src="img/raspberry_pi_logo.png" width="15%">     
-      </div>
+
+
     </div>
     <!-- /container --> 
   </div>
