@@ -57,8 +57,16 @@ textarea {
 
 
 
+#headite{
+	text-align: center !important;
+	background: #fafafa !important;
+	padding: 10px 0 10px 0;
+}
 
-
+#ite{
+	font-family: Times !important;
+	color: #cccccc;
+}
 
 
 /*------------------------------------------------------------------

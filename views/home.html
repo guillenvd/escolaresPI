@@ -1,6 +1,32 @@
-      <div style="padding-bottom: 70px; text-align: center;">
-            <h1>INSTITUTO TECNOLOGICO DE MÉXICO</h1>
-            <h2>Campus Ensenada, B. C.</h2>
-            <h3><strong>EscolaresPi</strong>: Sistema para Alumnos de Nuevo Ingreso</h3>     
-            <img src="img/raspberry_pi_logo.png" width="15%">     
-      </div>
+<div class="row">
+   	<div class="span8">
+      	<div> 
+      	<h2 style="text-align: center !important;"><strong>EscolaresPi</strong>: Sistema para Alumnos de Nuevo Ingreso</h2>
+      	<p style="text-align: justify;"> El Objetivo principal de nuestro proyecto es verificar los documentos de los alumnos de nuevo ingreso y mantener un control de los mismos, brindando así una mejor distribución en los tiempos tanto en la verificación de documentos como en la atención de inscripción.</p>
+     		<img src="img/Diagrama-Escolares.png" width=""> 
+     		<p><b>(Esquema Representativo del flujo de turnos)</b></p>    
+      	</div>
+	</div>
+   	<div class="span4">
+		<div class="widget">
+	       <div class="widget-header">
+	            <i class="icon-bar-chart"></i>
+	               <h3>Progreso de Inscripción</h3>
+	        </div>
+	        <!-- /widget-header -->
+	        <div class="widget-content">
+	        	<div class="control-group">											
+					<label class="control-label" for="firstname"><h3>Total Alumnos:</h3></label>
+					<div class="controls">
+					<input type="text" class="span2" id="firstname" value="#" style="height: 35px; 	font-size: 25px; font-weight: bold;">
+					</div> <!-- /controls -->				
+				</div> <!-- /control-group -->
+				<hr>
+				<h3>Gráfica por Carreras:</h3>
+                <canvas id="pie-chart" class="chart-holder" width="538" height="250"></canvas>
+	        <!-- /bar-chart -->
+	        </div>
+	        <!-- /widget-content -->
+	    </div>
+	</div>
+</div>
