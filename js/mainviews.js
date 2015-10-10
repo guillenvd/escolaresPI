@@ -12,6 +12,7 @@ function loadhome(){
 	$('#4').attr("class", ""); 
 	$('#5').attr("class", ""); 
 	$('#6').attr("class", "");
+	$('#7').attr("class", ""); 
 }
 
 function loadlista(){
@@ -22,6 +23,7 @@ function loadlista(){
 	$('#4').attr("class", ""); 
 	$('#5').attr("class", ""); 
 	$('#6').attr("class", "");
+	$('#7').attr("class", ""); 
 }
 
 function loadalta(){
@@ -32,6 +34,7 @@ function loadalta(){
 	$('#4').attr("class", "");
 	$('#5').attr("class", "");
 	$('#6').attr("class", "");
+	$('#7').attr("class", ""); 
 }
 
 function loadestadisticas(){
@@ -42,6 +45,7 @@ function loadestadisticas(){
 	$('#4').attr("class", "active");
 	$('#5').attr("class", ""); 
 	$('#6').attr("class", "");
+	$('#7').attr("class", ""); 
 }
 
 function loadalumnos(){
@@ -52,6 +56,7 @@ function loadalumnos(){
 	$('#4').attr("class", "");
 	$('#5').attr("class", "active");
 	$('#6').attr("class", "");
+	$('#7').attr("class", ""); 
 }
 
 function loadguia(){
@@ -62,4 +67,16 @@ function loadguia(){
 	$('#4').attr("class", "");
 	$('#5').attr("class", "");
 	$('#6').attr("class", "active"); 
+	$('#7').attr("class", ""); 
+}
+
+function loadClock(){
+	$("#content").load("views/clock.html");
+	$('#1').attr("class", "");
+	$('#2').attr("class", "");
+	$('#3').attr("class", ""); 
+	$('#4').attr("class", "");
+	$('#5').attr("class", "");
+	$('#6').attr("class", ""); 
+	$('#7').attr("class", "active"); 
 }
