@@ -3,23 +3,15 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2015 a las 20:39:57
+-- Tiempo de generación: 28-10-2015 a las 23:17:23
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.11
 
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
 --
 -- Base de datos: `escolarespi_db`
 --
-CREATE DATABASE IF NOT EXISTS `escolarespi_db` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE escolarespi_db;
 
 -- --------------------------------------------------------
 
@@ -30,13 +22,24 @@ USE escolarespi_db;
 CREATE TABLE IF NOT EXISTS `alumnos` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
-  `fecha` date NOT NULL,
-  `tiempo_estimado` time NOT NULL,
   `turno` int(4) NOT NULL,
+  `hora_inicio` datetime NOT NULL,
+  `hora_fin` datetime NOT NULL,
   `estado` int(12) NOT NULL,
   `carrera` int(12) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `ficha_inscripcion` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `carreraFk` (`carrera`) COMMENT 'Carrera de inscripción'
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+
+--
+-- Volcado de datos para la tabla `alumnos`
+--
+
+INSERT INTO `alumnos` (`id`, `nombre`, `turno`, `hora_inicio`, `hora_fin`, `estado`, `carrera`, `ficha_inscripcion`) VALUES
+(1, 'dav ', 1, '2015-10-01 09:12:00', '2015-10-02 09:30:00', 2, 1, 0),
+(2, 'dav ', 1, '2015-10-01 09:32:00', '2015-10-03 09:40:00', 2, 1, 1),
+(3, 'dav ', 1, '2015-10-01 09:42:00', '2015-10-02 10:00:00', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -48,7 +51,14 @@ CREATE TABLE IF NOT EXISTS `carreras` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `carreras`
+--
+
+INSERT INTO `carreras` (`id`, `nombre`) VALUES
+(1, 'Ing. Sistemas Computacionales');
 
 -- --------------------------------------------------------
 
@@ -64,6 +74,12 @@ CREATE TABLE IF NOT EXISTS `login` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `alumnos`
+--
+ALTER TABLE `alumnos`
+  ADD CONSTRAINT `carreraFk` FOREIGN KEY (`carrera`) REFERENCES `carreras` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

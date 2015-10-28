@@ -64,13 +64,12 @@
 			      	<div class="span5">	      		
 			      		<div id="target-2" class="widget">
 			      			<div class="widget-content center">
-			      			<form action="php/verificaciondocs.php" method="post">
 					      		<h1>Datos del alumno.</h1>
 									<fieldset>
 										<div class="control-group">
 											<label class="control-label" for="ficha">Ficha de inscripción</label>
 											<div class="controls">
-												<input type="text" id="ficha" name="n_ficha" disabled>
+												<input type="text" id="n_ficha" name="n_ficha" disabled>
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
 										<div class="control-group">
@@ -88,28 +87,24 @@
 										<div class="control-group">
 												<label class="control-label" for="carrera">Carrera</label>
 												<div class="controls">
-													<input type="text" id="carrera" name="carrera" disabled>
-												</div> <!-- /controls -->
-												 <!--<div class="controls">
 													<select  id="carrera" name="carrera" disabled>
-														<option value="" name="carrera">carrera</option>
-														<option value="" name="carrera">Sistemas Computacionales</option>
-														<option value="" name="carrera">Electronica</option>
-														<option value="" name="carrera">Industrian</option>
-														<option value="" name="carrera">Administracion</option>
+														<option value="1" >carrera</option>
+														<option value="2" >Sistemas Computacionales</option>
+														<option value="3" >Electronica</option>
+														<option value="4" >Industrian</option>
+														<option value="5" >Administracion</option>
 													</select>
-												</div> /controls -->				
+												</div> 			
 										</div> <!-- /control-group -->		
 									</fieldset>
 									<div class="form-actions" disabled>
-									<button type="submit" class="btn btn-primary" id="btn" disabled="true">
+									<button type="submit" class="btn btn-primary" id="btn" disabled="true" onclick="altaAlumno();">
 										Guardar
 									</button> 
 									
 							
 								<p class="help-block">Recuerde otorgar turno y tiempo estimado de espera..</p>
 									</div> <!-- /form-actions -->
-							</form>
 				      		</div> <!-- /widget-content -->
 			      		</div> <!-- /widget -->
 		      		</div> <!-- /span5 -->
@@ -129,7 +124,7 @@ $(".checkbox").change(function() {
 	});
 
 	if(checked.length==4){
-		$( "#ficha" ).removeProp( "disabled" );
+		$( "#n_ficha" ).removeProp( "disabled" );
 		$( "#nombre" ).removeProp( "disabled" );
 		$( "#apellidos" ).removeProp( "disabled" );
 		$( "#carrera" ).removeProp( "disabled" );
@@ -143,4 +138,19 @@ $(".checkbox").change(function() {
 		$( "#btn" ).prop( "disabled", true );
 	}
 });
+
+function altaAlumno() {
+	var Nombre = $("#nombre").val() + $("#apellidos").val();
+	var Ficha =  $("#n_ficha").val();
+	var Carrera =  $( "#carrera option:selected" ).text();
+	var parameters = {Nomb:Nombre, Fi:Ficha, Carrera:Carrera } ; 
+	$.get("http://localhost/universidad/escolares/php/altaAlumnos.php", 
+			parameters,
+			function(data){
+				var jsonResponse  = jQuery.parseJSON(data);
+		  		console.log(jsonResponse.key2);
+			}
+	);
+
+}
 </script>
