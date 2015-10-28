@@ -1,132 +1,146 @@
-	    <div class="row">
-	      	<div class="span12">      			
-	      		<div class="widget ">
-	      			<div class="widget-header">
-	      				<i class="icon-user"></i>
-	      				<h3>Alta a lista de espera.</h3>
-	  				</div> <!-- /widget-header -->
-					<div class="widget-content">
-						<div class="tabbable">
-						<ul class="nav nav-tabs">
-						  <li  class="active">
-						    <a href="#formcontrols" data-toggle="tab">Datos necesarios</a>
-						  </li>
-						</ul>
-						<br>
-							<div class="tab-content">
-								<div class="tab-pane active" id="formcontrols">
+<div class="row">
+<div class="span12">      			
+	<div class="widget ">
+		<div class="widget-header">
+			<i class="icon-user"></i>
+			<h3>Alta a lista de espera.</h3>
+		</div> <!-- /widget-header -->
+	<div class="widget-content">
+		<div class="tabbable">
+		<ul class="nav nav-tabs">
+		  <li  class="active">
+		    <a href="#formcontrols" data-toggle="tab">Datos necesarios</a>
+		  </li>
+		</ul>
+		<br>
+			<div class="tab-content">
+				<div class="tab-pane active" id="formcontrols">
+					<div class="span5">
+			      		<div class="widget">
+			      			<div class="widget-content">
+					      		<h1>Documentos necesarios.</h1>
+					      		<form id="edit-profile" class="form-horizontal">
+											<fieldset>
+		                                        <div class="control-group">											
+													<label class="control-label">Documento necesario:</label>
+		                                            <div class="controls">
+		                                            <label class="checkbox inline">
+		                                              <input type="checkbox" name="docs[]"> Option 01
+		                                            </label>
+		                                          </div>		
+												</div> 
 
-									<div class="span5">
-							      		<div class="widget">
-							      			<div class="widget-content">
-									      		<h1>Documentos necesarios.</h1>
-									      		<form id="edit-profile" class="form-horizontal">
-															<fieldset>
-						                                        <div class="control-group">											
-																	<label class="control-label">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
-						                                            <div class="controls">
-						                                            <label class="checkbox inline">
-						                                              <input type="checkbox" name="docs[]"> Option 01
-						                                            </label>
-						                                          </div>		
-																</div> 
+		                                        <div class="control-group">											
+													<label class="control-label">Documento necesario:</label>
+		                                            <div class="controls">
+		                                            <label class="checkbox inline">
+		                                              <input type="checkbox" name="docs[]"> Option 01
+		                                            </label>
+		                                          </div>		
+												</div> 
 
-						                                        <div class="control-group">											
-																	<label class="control-label">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
-						                                            <div class="controls">
-						                                            <label class="checkbox inline">
-						                                              <input type="checkbox" name="docs[]"> Option 01
-						                                            </label>
-						                                          </div>		
-																</div> 
+												<div class="control-group">											
+													<label class="control-label">Documento necesario:</label>
+		                                            <div class="controls">
+		                                            <label class="checkbox inline">
+		                                              <input type="checkbox" name="docs[]"> Option 01
+		                                            </label>
+		                                          </div>		
+												</div> 
 
-																<div class="control-group">											
-																	<label class="control-label">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
-						                                            <div class="controls">
-						                                            <label class="checkbox inline">
-						                                              <input type="checkbox" name="docs[]"> Option 01
-						                                            </label>
-						                                          </div>		
-																</div> 
+												<div class="control-group">										
+													<label class="control-label">Documento necesario:</label>
+		                                            <div class="controls">
+		                                            <label class="checkbox inline">
+		                                              <input type="checkbox" name="docs[]"> Option 01
+		                                            </label>
+		                                          </div>		
+												</div> 
+											</fieldset>
+										</form>
+				      		</div> <!-- /widget-content -->
+			      		</div> <!-- /widget -->
+		      		</div> <!-- /span5 -->
+			      	<div class="span5">	      		
+			      		<div id="target-2" class="widget">
+			      			<div class="widget-content center">
+			      			<form action="php/verificaciondocs.php" method="post">
+					      		<h1>Datos del alumno.</h1>
+									<fieldset>
+										<div class="control-group">
+											<label class="control-label" for="ficha">Ficha de inscripción</label>
+											<div class="controls">
+												<input type="text" id="ficha" name="n_ficha" disabled>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										<div class="control-group">
+												<label class="control-label" for="nombre">Nombre(s)</label>
+												<div class="controls">
+													<input type="text" id="nombre"  name="nombre" disabled>
+												</div> <!-- /controls -->				
+										</div> <!-- /control-group -->	
+										<div class="control-group">
+												<label class="control-label" for="apellidos">Apellidos</label>
+												<div class="controls">
+													<input type="text" id="apellidos"  name="apellidos" disabled>
+												</div> <!-- /controls -->				
+										</div> <!-- /control-group -->	
+										<div class="control-group">
+												<label class="control-label" for="carrera">Carrera</label>
+												<div class="controls">
+													<input type="text" id="carrera" name="carrera" disabled>
+												</div> <!-- /controls -->
+												 <!--<div class="controls">
+													<select  id="carrera" name="carrera" disabled>
+														<option value="" name="carrera">carrera</option>
+														<option value="" name="carrera">Sistemas Computacionales</option>
+														<option value="" name="carrera">Electronica</option>
+														<option value="" name="carrera">Industrian</option>
+														<option value="" name="carrera">Administracion</option>
+													</select>
+												</div> /controls -->				
+										</div> <!-- /control-group -->		
+									</fieldset>
+									<div class="form-actions" disabled>
+									<button type="submit" class="btn btn-primary" id="btn" disabled="true">
+										Guardar
+									</button> 
+									
+							
+								<p class="help-block">Recuerde otorgar turno y tiempo estimado de espera..</p>
+									</div> <!-- /form-actions -->
+							</form>
+				      		</div> <!-- /widget-content -->
+			      		</div> <!-- /widget -->
+		      		</div> <!-- /span5 -->
 
-																<div class="control-group">											
-																	<label class="control-label">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
-						                                            <div class="controls">
-						                                            <label class="checkbox inline">
-						                                              <input type="checkbox" name="docs[]"> Option 01
-						                                            </label>
-						                                          </div>		
-																</div> 
-															</fieldset>
-														</form>
-								      		</div> <!-- /widget-content -->
-							      		</div> <!-- /widget -->
-						      		</div> <!-- /span5 -->
-							      	
-							      	<div class="span5">	      		
-							      		<div id="target-2" class="widget">
-							      			<div class="widget-content center">
-									      		<h1>Datos del alumno.</h1>
-													<fieldset>
-														<div class="control-group">
-															<label class="control-label" for="ficha">Ficha de inscripción</label>
-															<div class="controls">
-																<input type="text" id="ficha"  disabled>
-															</div> <!-- /controls -->				
-														</div> <!-- /control-group -->
-														<div class="control-group">
-																<label class="control-label" for="nombre">Nombre completo</label>
-																<div class="controls">
-																	<input type="text" id="nombre"  disabled>
-																</div> <!-- /controls -->				
-														</div> <!-- /control-group -->		
+				
+				</div>
+		</div>
+	</div> <!-- /widget-content -->
+	</div> <!-- /widget -->
+	</div> <!-- /span8 -->
+</div> <!-- /row -->
+<script>
+$(".checkbox").change(function() {
+	var checked = [];
+	$("input:checked").each(function() {
+	  checked.push($(this).val());
+	});
 
-														<div class="control-group">
-																<label class="control-label" for="carrera">Carrera</label>
-																<div class="controls">
-																	<select  id="carrera" disabled>
-																		<option value="">carrera</option>
-																	</select>
-																</div> <!-- /controls -->				
-														</div> <!-- /control-group -->		
-													</fieldset>
-													<div class="form-actions" disabled>
-													<button type="submit" class="btn btn-primary" id="btn" disabled="true">
-														Guardar
-													</button> 
-													
-											
-												<p class="help-block">Recuerde otorgar turno y tiempo estimado de espera..</p>
-													</div> <!-- /form-actions -->
-								      		</div> <!-- /widget-content -->
-							      		</div> <!-- /widget -->
-						      		</div> <!-- /span5 -->
-
-								
-								</div>
-						</div>
-					</div> <!-- /widget-content -->
-				</div> <!-- /widget -->
-		    </div> <!-- /span8 -->
-	      </div> <!-- /row -->
-	      <script>
-	      		$(".checkbox").change(function() {
-	      			var checked = [];
-						$("input:checked").each(function() {
-						  checked.push($(this).val());
-						});
-
-						if(checked.length==4){
-							$( "#ficha" ).removeProp( "disabled" );
-							$( "#nombre" ).removeProp( "disabled" );
-							$( "#carrera" ).removeProp( "disabled" );
-							$( "#btn" ).removeProp( "disabled" );
-						}
-						else{
-							$( "#ficha" ).prop( "disabled", true );
-							$( "#nombre" ).prop( "disabled", true );
-							$( "#carrera" ).prop( "disabled", true );
-							$( "#btn" ).prop( "disabled", true );
-						}
-				});
-	      </script>
+	if(checked.length==4){
+		$( "#ficha" ).removeProp( "disabled" );
+		$( "#nombre" ).removeProp( "disabled" );
+		$( "#apellidos" ).removeProp( "disabled" );
+		$( "#carrera" ).removeProp( "disabled" );
+		$( "#btn" ).removeProp( "disabled" );
+	}
+	else{
+		$( "#ficha" ).prop( "disabled", true );
+		$( "#nombre" ).prop( "disabled", true );
+		$( "#apellidos" ).prop( "disabled", true );
+		$( "#carrera" ).prop( "disabled", true );
+		$( "#btn" ).prop( "disabled", true );
+	}
+});
+</script>

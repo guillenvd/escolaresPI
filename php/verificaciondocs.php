@@ -20,9 +20,6 @@ include("conexion.php");
 				</script>
 			";
 			?>
-	
-
-
 <?php
 	}else{
 			echo " 
@@ -30,7 +27,6 @@ include("conexion.php");
 					function redireccionar(){
 						alert(\"Campos Vacios\")
    					 location.href = \"../escolarespi.html\";
-
 					} 
 				setTimeout (\"redireccionar()\", 1000);
 				</script>
