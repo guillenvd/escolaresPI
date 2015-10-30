@@ -69,7 +69,21 @@ textarea {
 }
 #ite{
 	font-family: 'Open Sans' !important;
-	color: #cccccc;
+	color: #A4A4A4;
+}
+
+#ite > h1 {
+	font-size: 2.5em;
+}
+
+#ite > h2 {
+	font-size: 1.8em;
+}
+
+fieldset > .control-group >  label.control-label {
+	width: 400px !important;
+	padding-right: 50px !important;
+	text-align: left;
 }
 
 @media(max-width: 768px){
@@ -80,7 +94,7 @@ textarea {
 
 }
 
-
+/*-----------------------CHECKBOX----------------------------------
 /*------------------------------------------------------------------
 [2. Navbar / .navbar]
 */
@@ -90,7 +104,7 @@ textarea {
 }
 
 .navbar-inner {
-	padding: 7px 0;
+	padding: 0 !important;
 	background: #00c1a4; /* Old browsers */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00c1a4), color-stop(100%,#00ad8a)); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top,  #00c1a4 0%,#00ad8a 100%); /* Chrome10+,Safari5.1+ */
@@ -109,9 +123,9 @@ textarea {
 }
 .navbar .nav>li>a { color:#fff !important;}
 .navbar .brand {
-	font-weight: 600;
 	position: relative;
-	top: 2px;
+	top: 4px;
+	font-size: 1.1em;
 }
 
 .navbar .search-query {
