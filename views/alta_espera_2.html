@@ -1,0 +1,187 @@
+<div class="row">
+<div class="span12">      			
+	<div class="widget ">
+		<div class="widget-header">
+			<i class="icon-user"></i>
+			<h3>Alta a lista de espera.</h3>
+		</div> <!-- /widget-header -->
+	<div class="widget-content">
+		<div class="tabbable">
+		<ul class="nav nav-tabs">
+		  <li  class="active">
+		    <a href="#formcontrols" data-toggle="tab">Datos necesarios</a>
+		  </li>
+		</ul>
+		<br>
+			<div class="tab-content">
+				<div class="tab-pane active" id="formcontrols">
+					<div class="span5">
+			      		<div class="widget">
+			      			<div class="widget-content">
+					      		<h1>Documentos necesarios:</h1>
+					      		<form id="edit-profile" class="form-horizontal">
+											<fieldset>
+		                                        <div class="control-group">											
+													<label class="control-label" style="width: 100px !important;">CERTIFICADO DE BACHILLERATO   O EQUIVALENTE</label>
+		                                            <div class="controls">
+		                                            <label class="checkbox inline">
+		                                              <input type="checkbox" name="docs[]"> Option 01
+		                                            </label>
+		                                          </div>		
+												</div> 
+
+		                                        <div class="control-group">											
+													<label class="control-label">ACTA DE NACIMIENTO</label>
+		                                            <div class="controls">
+		                                            <label class="checkbox inline">
+		                                              <input type="checkbox" name="docs[]"> Option 01
+		                                            </label>
+		                                          </div>		
+												</div> 
+
+												<div class="control-group">											
+													<label class="control-label">DICTAMEN DE REVALIDACIÓN O EQUIVALENCIA DE ESTUDIOS</label>
+		                                            <div class="controls">
+		                                            <label class="checkbox inline">
+		                                              <input type="checkbox" name="docs[]"> Option 01
+		                                            </label>
+		                                          </div>		
+												</div> 
+												<div class="control-group">										
+													<label class="control-label">CURP</label>
+		                                            <div class="controls">
+		                                            <label class="checkbox inline">
+		                                              <input type="checkbox" name="docs[]"> Option 01
+		                                            </label>
+		                                          </div>		
+												</div>
+												<div class="control-group">										
+													<label class="control-label">COPIA DE COMPROBANTE DE CUOTA POR CONCEPTO DE INSCRIPCIÓN</label>
+		                                            <div class="controls">
+		                                            <label class="checkbox inline">
+		                                              <input type="checkbox" name="docs[]"> Option 01
+		                                            </label>
+		                                          </div>		
+												</div>
+												<div class="control-group">										
+													<label class="control-label">COPIA DE FORMA FM 9 (EN CASO DE SER EXTRANJERO)</label>
+		                                            <div class="controls">
+		                                            <label class="checkbox inline">
+		                                              <input type="checkbox" name="docs[]"> Option 01
+		                                            </label>
+		                                          </div>		
+												</div>
+												<div class="control-group">										
+													<label class="control-label">6 FOTOGRAFÍAS RECIENTES</label>
+		                                            <div class="controls">
+		                                            <label class="checkbox inline">
+		                                              <input type="checkbox" name="docs[]"> Option 01
+		                                            </label>
+		                                          </div>		
+												</div>
+												<div class="control-group">										
+													<label class="control-label">CERTIFICADO MÉDICO</label>
+		                                            <div class="controls">
+		                                            <label class="checkbox inline">
+		                                              <input type="checkbox" name="docs[]"> Option 01
+		                                            </label>
+		                                          </div>		
+												</div>
+											</fieldset>
+										</form>
+				      		</div> <!-- /widget-content -->
+			      		</div> <!-- /widget -->
+		      		</div> <!-- /span5 -->
+			      	<div class="span5">	      		
+			      		<div id="target-2" class="widget">
+			      			<div class="widget-content center">
+					      		<h1>Datos del alumno.</h1>
+									<fieldset>
+										<div class="control-group">
+											<label class="control-label" for="ficha">Ficha de inscripción</label>
+											<div class="controls">
+												<input type="text" id="n_ficha" name="n_ficha" disabled>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										<div class="control-group">
+												<label class="control-label" for="nombre">Nombre(s)</label>
+												<div class="controls">
+													<input type="text" id="nombre"  name="nombre" disabled>
+												</div> <!-- /controls -->				
+										</div> <!-- /control-group -->	
+										<div class="control-group">
+												<label class="control-label" for="apellidos">Apellidos</label>
+												<div class="controls">
+													<input type="text" id="apellidos"  name="apellidos" disabled>
+												</div> <!-- /controls -->				
+										</div> <!-- /control-group -->	
+										<div class="control-group">
+												<label class="control-label" for="carrera">Carrera</label>
+												<div class="controls">
+													<select  id="carrera" name="carrera" disabled>
+														<option value="1" >carrera</option>
+														<option value="2" >Sistemas Computacionales</option>
+														<option value="3" >Electronica</option>
+														<option value="4" >Industrian</option>
+														<option value="5" >Administracion</option>
+													</select>
+												</div> 			
+										</div> <!-- /control-group -->		
+									</fieldset>
+									<div class="form-actions" disabled>
+									<button type="submit" class="btn btn-primary" id="btn" disabled="true" onclick="altaAlumno();">
+										Guardar
+									</button> 
+									
+							
+								<p class="help-block">Recuerde otorgar turno y tiempo estimado de espera..</p>
+									</div> <!-- /form-actions -->
+				      		</div> <!-- /widget-content -->
+			      		</div> <!-- /widget -->
+		      		</div> <!-- /span5 -->
+
+				
+				</div>
+		</div>
+	</div> <!-- /widget-content -->
+	</div> <!-- /widget -->
+	</div> <!-- /span8 -->
+</div> <!-- /row -->
+<script>
+$(".checkbox").change(function() {
+	var checked = [];
+	$("input:checked").each(function() {
+	  checked.push($(this).val());
+	});
+
+	if(checked.length==4){
+		$( "#n_ficha" ).removeProp( "disabled" );
+		$( "#nombre" ).removeProp( "disabled" );
+		$( "#apellidos" ).removeProp( "disabled" );
+		$( "#carrera" ).removeProp( "disabled" );
+		$( "#btn" ).removeProp( "disabled" );
+	}
+	else{
+		$( "#ficha" ).prop( "disabled", true );
+		$( "#nombre" ).prop( "disabled", true );
+		$( "#apellidos" ).prop( "disabled", true );
+		$( "#carrera" ).prop( "disabled", true );
+		$( "#btn" ).prop( "disabled", true );
+	}
+});
+
+function altaAlumno() {
+	var Nombre = $("#nombre").val() + $("#apellidos").val();
+	var Ficha =  $("#n_ficha").val();
+	var Carrera =  $( "#carrera option:selected" ).text();
+	var parameters = {Nomb:Nombre, Fi:Ficha, Carrera:Carrera } ; 
+	$.get("http://localhost/universidad/escolares/php/altaAlumnos.php", 
+			parameters,
+			function(data){
+				var jsonResponse  = jQuery.parseJSON(data);
+		  		console.log(jsonResponse.key2);
+			}
+	);
+
+}
+</script>
