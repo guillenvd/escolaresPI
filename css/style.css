@@ -80,10 +80,10 @@ textarea {
 	font-size: 1.8em;
 }
 
-fieldset > .control-group >  label.control-label {
+fieldset > .control-group >  label.checks {
 	width: 400px !important;
 	padding-right: 50px !important;
-	text-align: left;
+	text-align: right;
 }
 
 @media(max-width: 768px){
