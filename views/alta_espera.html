@@ -89,10 +89,10 @@
 												<div class="controls">
 													<select  id="carrera" name="carrera" disabled>
 														<option value="1" >carrera</option>
-														<option value="2" >Sistemas Computacionales</option>
-														<option value="3" >Electronica</option>
-														<option value="4" >Industrian</option>
-														<option value="5" >Administracion</option>
+														<option value="1" >Sistemas Computacionales</option>
+														<option value="1" >Electronica</option>
+														<option value="1" >Industrian</option>
+														<option value="1" >Administracion</option>
 													</select>
 												</div> 			
 										</div> <!-- /control-group -->		
@@ -116,6 +116,28 @@
 	</div> <!-- /widget -->
 	</div> <!-- /span8 -->
 </div> <!-- /row -->
+
+<!-- Modal -->
+  <div class="modal fade" id="modalRespuesta" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content center-text">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        	<h4 class="modal-title center-text">Confirmación</h4>
+        </div>
+        <div class="modal-body center-text">
+        <p>
+			El alumno <b class="textInfo" id="nombreAlumno"></b> con la ficha de inscripción <b class="textInfo" id="FichaAlumno"></b> tiene el turno <b class="textInfo" id="turnoAlumno"></b>, y el tiempo estimado para su atencion es de <b class="textInfo" id="EstimadoAlumno"></b> minutos
+        </p>
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 $(".checkbox").change(function() {
 	var checked = [];
@@ -140,17 +162,43 @@ $(".checkbox").change(function() {
 });
 
 function altaAlumno() {
-	var Nombre = $("#nombre").val() + $("#apellidos").val();
+	var Nombre = $("#nombre").val() + " "+$("#apellidos").val();
 	var Ficha =  $("#n_ficha").val();
-	var Carrera =  $( "#carrera option:selected" ).text();
-	var parameters = {Nomb:Nombre, Fi:Ficha, Carrera:Carrera } ; 
-	$.get("http://localhost/universidad/escolares/php/altaAlumnos.php", 
-			parameters,
-			function(data){
-				var jsonResponse  = jQuery.parseJSON(data);
-		  		console.log(jsonResponse.key2);
-			}
-	);
+	var Carrera =  parseInt($( "#carrera option:selected" ).val());
+	var parameters = {Nombre:Nombre, Ficha:Ficha, Carrera:Carrera } ; 
+	console.log(parameters);
+$.get("php/altaAlumnos.php", parameters )
+  .done(function( data ) {
+    	var jsonResponse  = jQuery.parseJSON(data);
+    	var Nombre = $("#nombre").val() + " "+$("#apellidos").val();
+		var Ficha =  $("#n_ficha").val();
+		$('#nombreAlumno').empty();
+		$('#FichaAlumno').empty();
+		$('#turnoAlumno').empty();
+		$('#EstimadoAlumno').empty();
+		$('#nombreAlumno').text(Nombre);
+		$('#FichaAlumno').text(Ficha);
+		$('#turnoAlumno').text(jsonResponse.turno);
+		$('#EstimadoAlumno').text(jsonResponse.tiempo);
+		
+		$("#modalRespuesta").modal('toggle');
+
+		$( "#ficha" ).prop( "disabled", true );
+		$( "#nombre" ).prop( "disabled", true );
+		$( "#apellidos" ).prop( "disabled", true );
+		$( "#carrera" ).prop( "disabled", true );
+		$( "#btn" ).prop( "disabled", true );
+
+		$("#nombre").val("");
+		$("#apellidos").val("");
+		$("#n_ficha").val("");
+		$("#carrera").val("");
+
+		$("input:checked").each(function() {
+		  $(this).prop('checked', false); // Unchecks it
+		});
+
+  });
 
 }
 </script>

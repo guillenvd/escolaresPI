@@ -16,9 +16,9 @@
 	        <!-- /widget-header -->
 	        <div class="widget-content">
 	        	<div class="control-group">											
-					<label class="control-label" for="firstname"><h3>Total Alumnos:</h3></label>
+					<label class="control-label" for="totalAlumo"><h3>Total Alumnos:</h3></label>
 					<div class="controls">
-					<input type="text" class="span2" id="firstname" value="#" style="height: 35px; 	font-size: 25px; font-weight: bold;">
+					<input type="text" class="span2" id="totalAlumo" value="#" style="height: 35px; 	font-size: 25px; font-weight: bold;" disabled="true">
 					</div> <!-- /controls -->				
 				</div> <!-- /control-group -->
 				<hr>
@@ -30,3 +30,12 @@
 	    </div>
 	</div>
 </div>
+<script>
+	$(document).ready(function (){
+		$.get("php/totalAlumnos.php", function( data ) {
+			console.log(data);
+		  var jsonResponse  = jQuery.parseJSON(data);
+		  	$('#totalAlumo').val('# '+jsonResponse.totalAlumnos);
+		});
+	});
+</script>

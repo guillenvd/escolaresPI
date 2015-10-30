@@ -4435,3 +4435,6 @@ td.visible-print {
     display: none !important;
   }
 }
+.center-text{
+  text-align: center;
+}
