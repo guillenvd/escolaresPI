@@ -12,6 +12,6 @@ $result = $conn->query($sqlGetLista);
 	}
 
 	$array = json_encode($return_arr);
-	echo $array
+	echo $array;
 
 ?>

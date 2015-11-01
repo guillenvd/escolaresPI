@@ -5,7 +5,7 @@
 include("conexion.php");
 $Indice = date("Y-m-d");// Fecha actual, ejemplo 2015-12-31 23:59:59
 
-$sqlGetTurno = "SELECT * FROM alumnos WHERE  ficha_inscripcion =".(int)$_GET['Ficha'];
+$sqlGetTurno = "SELECT * FROM alumnos WHERE  ficha_inscripcion =".(int)$_GET['Ficha']." limit 1";
 $alumno = array();
 $estado = 0;
 // ir por cantidad de alumnos
