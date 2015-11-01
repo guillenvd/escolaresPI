@@ -19,7 +19,7 @@
 										</div> <!-- /control-group -->
 									</fieldset>
 									<div class="form-actions" disabled>
-									<button type="submit" class="btn btn-primary" id="btn" onclick="altaAlumno();">
+									<button type="submit" class="btn btn-primary" id="btn" onclick="searchAlumno();">
 										Guardar
 									</button> 
 									</div> <!-- /form-actions -->
@@ -35,36 +35,36 @@
 										        <tbody>
 												   <tr>
 										                <th>Nombre</th>
-										                <td></td>
+										                <td id="nombreA"></td>
 										            </tr>
 											        
 										            <tr>
 										                <th>Carrera</th>
-										                <td></td>
+										                <td id="carreraA"></td>
 										            </tr>
 											        
 										            <tr>
 										                <th>Fecha de atención</th>
-										                <td></td>
+										                <td id="fechaA"></td>
 										            </tr>
 										            <tr>
 										                <th>Ficha de inscripción</th>
-										                <td> </td>
+										                <td id="fichaA"> </td>
 										            </tr>
 										            <tr>
 										                <th>Turno</th>
-										                <td> </td>
+										                <td id="turnoA"> </td>
 										            </tr>
 										            <tr>
 										                <th>Estado</th>
-										                <td> </td>
+										                <td id="estadoA"> </td>
 										            </tr>
 										        </tbody>
 										    </table>
 									</fieldset>
 									<div class="form-actions" disabled>
-									<button type="submit" class="btn btn-primary" id="btn" disabled="true" onclick="altaAlumno();">
-										Guardar
+									<button type="submit" class="btn btn-primary" id="btn" onclick="limpiar();">
+										Limpiar
 									</button> 
 									</div> <!-- /form-actions -->
 				      		</div> <!-- /widget-content -->
@@ -77,3 +77,46 @@
 				</div> <!-- /widget -->
 		    </div> <!-- /span8 -->
 	      </div> <!-- /row -->
+<script>
+		function searchAlumno() {
+			var parameter = {Ficha:$('#n_ficha').val()};
+			$.get("php/searchAlumno.php", parameter ,function( data ) {
+			  	var jsonResponse  = jQuery.parseJSON(data);
+			  	console.log(jsonResponse);
+			  	if(jsonResponse.estado == 0){
+			  		$('#nombreA').text(jsonResponse.Alumno.Nombre);
+					$('#carreraA').text(jsonResponse.Alumno.Carrera);
+					$('#fechaA').text(jsonResponse.Alumno.Fecha);
+					$('#fichaA').text(jsonResponse.Alumno.Ficha);
+					$('#turnoA').text(jsonResponse.Alumno.Turno);
+					$('#estadoA').text(getEstado(jsonResponse.Alumno.Estado));
+			  	}
+			  	else{
+			  		alert('No se ha encontrado la ficha');
+			  	}
+			});
+		}
+	function limpiar() {
+		$('#nombreA').text('');
+		$('#carreraA').text('');
+		$('#fechaA').text('');
+		$('#fichaA').text('');
+		$('#turnoA').text('');
+		$('#estadoA').text('');
+		$('#n_ficha').val('');
+	}
+	function getEstado(estado) {
+        switch(parseInt(estado)) {
+          case 1:
+              return 'En espera'
+              break;
+          case 2:
+              return 'Atendido'
+              break;
+          case 3:
+              return 'No se presento'
+              break;
+        }
+    }
+
+</script>
