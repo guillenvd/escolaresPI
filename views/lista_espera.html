@@ -11,12 +11,12 @@
                   <tr>
                     <th>Nombre del Alumno</th>
                     <th># Ficha</th>
-                    <th>Tiempo de Atención</th>
+                    <th>Turno</th>
                     <th>Estado</th>
                     <th class="td-actions">Opciones</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="tableEspera">
                   <tr>
                     <td>David Guillen Vazquez</td>
                     <td>1234</td>
@@ -34,3 +34,57 @@
       </div>
       <!-- /row -->
 
+
+<script>
+  $(document).ready(function (){
+    request();
+  });
+
+    function request(){
+       $.get("php/lista_espera.php", function( data ) {
+            var jsonResponse  = jQuery.parseJSON(data);
+            var tablaDatos= $("#tableEspera");
+                tablaDatos.empty();
+            $.each(jsonResponse, function(i,item){
+                     var registro =" <tr>"+
+                                        "<td>"+item.Nombre+"</td>"+
+                                        "<td>"+item.Ficha+"</td>"+
+                                        "<td>"+item.Turno+"</td>"+
+                                        "<td>"+getEstado(item.Estado)+"</td>"+
+                                        "<td class='td-actions'><a href='javascript:;' class='btn btn-small btn-success'  onclick='attended("+item.Ficha+")'><i class='btn-icon-only fa fa-check'> </i></a><a href='javascript:;' class='btn btn-danger btn-small' onclick='noPresent("+item.Ficha+")'><i class='btn-icon-only fa fa-times'> </i></a></td>"+
+                                        "</tr>";
+                     tablaDatos.append(registro);
+              });
+        });
+    }
+
+    function getEstado(estado) {
+        switch(parseInt(estado)) {
+          case 1:
+              return 'En espera'
+              break;
+          case 2:
+              return 'Atendido'
+              break;
+          case 3:
+              return 'No se presento'
+              break;
+        }
+    }
+
+function noPresent(ficha) {
+      var parameters = { Ficha:ficha, Estado:3};
+      $.get("php/updateStatus.php", parameters ).done(function( data ) {
+              var jsonResponse  = jQuery.parseJSON(data);
+              request();
+      });
+    }
+
+    function attended(ficha) {
+      var parameters = { Ficha:ficha, Estado:2};
+      $.get("php/updateStatus.php", parameters ).done(function( data ) {
+              var jsonResponse  = jQuery.parseJSON(data);
+              request();
+      });
+    }
+</script>

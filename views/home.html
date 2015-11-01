@@ -31,12 +31,8 @@
 <script>
 	$(document).ready(function (){
 		$.get("php/totalAlumnos.php", function( data ) {
-			console.log(data);
-		  var jsonResponse  = jQuery.parseJSON(data);
+		  	var jsonResponse  = jQuery.parseJSON(data);
 		  	$('#totalAlumno').val('# '+jsonResponse.totalAlumnos);
 		});
 	});
-
-
-
 </script>

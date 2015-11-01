@@ -184,33 +184,32 @@ function altaAlumno() {
 	var Ficha =  $("#n_ficha").val();
 	var Carrera =  parseInt($( "#carrera option:selected" ).val());
 	var parameters = {Nombre:Nombre, Ficha:Ficha, Carrera:Carrera } ; 
-	console.log(parameters);
-$.get("php/altaAlumnos.php", parameters )
-  .done(function( data ) {
-    	var jsonResponse  = jQuery.parseJSON(data);
-    	var Nombre = $("#nombre").val() + " "+$("#apellidos").val();
-		var Ficha =  $("#n_ficha").val();
-		$('#nombreAlumno').empty();
-		$('#FichaAlumno').empty();
-		$('#turnoAlumno').empty();
-		$('#EstimadoAlumno').empty();
-		$('#nombreAlumno').text(Nombre);
-		$('#FichaAlumno').text(Ficha);
-		$('#turnoAlumno').text(jsonResponse.turno);
-		$('#EstimadoAlumno').text(jsonResponse.tiempo);
-		$("#modalRespuesta").modal('toggle');
-		$("#ficha" ).prop( "disabled", true );
-		$("#nombre" ).prop( "disabled", true );
-		$("#apellidos" ).prop( "disabled", true );
-		$("#carrera" ).prop( "disabled", true );
-		$("#btn" ).prop( "disabled", true );
-		$("#nombre").val("");
-		$("#apellidos").val("");
-		$("#n_ficha").val("");
-		$("#carrera").val("");
-		$("input:checked").each(function() {
-		  $(this).prop('checked', false); // Unchecks it
-		});
-  });
+		$.get("php/altaAlumnos.php", parameters )
+		  .done(function( data ) {
+		    	var jsonResponse  = jQuery.parseJSON(data);
+		    	var Nombre = $("#nombre").val() + " "+$("#apellidos").val();
+				var Ficha =  $("#n_ficha").val();
+				$('#nombreAlumno').empty();
+				$('#FichaAlumno').empty();
+				$('#turnoAlumno').empty();
+				$('#EstimadoAlumno').empty();
+				$('#nombreAlumno').text(Nombre);
+				$('#FichaAlumno').text(Ficha);
+				$('#turnoAlumno').text(jsonResponse.turno);
+				$('#EstimadoAlumno').text(jsonResponse.tiempo);
+				$("#modalRespuesta").modal('toggle');
+				$("#ficha" ).prop( "disabled", true );
+				$("#nombre" ).prop( "disabled", true );
+				$("#apellidos" ).prop( "disabled", true );
+				$("#carrera" ).prop( "disabled", true );
+				$("#btn" ).prop( "disabled", true );
+				$("#nombre").val("");
+				$("#apellidos").val("");
+				$("#n_ficha").val("");
+				$("#carrera").val("");
+				$("input:checked").each(function() {
+				  $(this).prop('checked', false); // Unchecks it
+				});
+		  });
 }
 </script>
