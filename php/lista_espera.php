@@ -2,16 +2,15 @@
 /*	Include principal para la conexión a la base de datos*/
 include("conexion.php");
 $sqlGetLista = "SELECT nombre, turno, estado, carrera, ficha_inscripcion FROM alumnos";
-$i = 0;
-$rawdata = array();
+$return_arr = array();
+
 $result = $conn->query($sqlGetLista); 
 
 	while($row = mysqli_fetch_array($result)) {
-	    	$rawdata[$i] = $row;
-	    	$i++;
+	    array_push($return_arr,$row);
 	}
 
-	$array = json_encode($rawdata);
-	print_r($array);
+	$array = json_encode($return_arr);
+	echo $array
 
 ?>
