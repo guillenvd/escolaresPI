@@ -184,6 +184,7 @@ function altaAlumno() {
 	var Ficha =  $("#n_ficha").val();
 	var Carrera =  parseInt($( "#carrera option:selected" ).val());
 	var parameters = {Nombre:Nombre, Ficha:Ficha, Carrera:Carrera } ; 
+	console.log(parameters);
 		$.get("php/altaAlumnos.php", parameters )
 		  .done(function( data ) {
 		    	var jsonResponse  = jQuery.parseJSON(data);
@@ -212,4 +213,18 @@ function altaAlumno() {
 				});
 		  });
 }
+	$(document).ready(function (){
+		$.get("php/getCarrera.php", function( data ) {
+		  	var jsonResponse  = jQuery.parseJSON(data);
+		  	var carreras = "<option value='0' >Seleccione una carrera</option>";
+		  	 var selectCarreras = $("#carrera");
+                 selectCarreras.empty();
+		  	$.each(jsonResponse, function(i,item){
+		  			carreras += "<option value='"+item.Id+"' >"+item.Nombre+"</option>";
+		  		});
+		  	    selectCarreras.append(carreras);
+
+
+		});
+	});
 </script>
