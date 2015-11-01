@@ -3,15 +3,18 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-10-2015 a las 09:35:48
+-- Tiempo de generación: 01-11-2015 a las 07:06:22
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.11
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
 -- Base de datos: `escolarespi_db`
 --
+CREATE DATABASE IF NOT EXISTS `escolarespi_db` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `escolarespi_db`;
 
 -- --------------------------------------------------------
 
@@ -31,23 +34,16 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
   `indice` varchar(12) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `carreraFk` (`carrera`) COMMENT 'Carrera de inscripción'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=49 ;
 
 --
 -- Volcado de datos para la tabla `alumnos`
 --
 
 INSERT INTO `alumnos` (`id`, `nombre`, `turno`, `hora_inicio`, `hora_fin`, `estado`, `carrera`, `ficha_inscripcion`, `indice`) VALUES
-(1, 'dav ', 1, '2015-10-01 09:12:00', '2015-10-01 09:15:00', 2, 1, 123, '2015-10-30'),
-(33, 'ssss', 2, '2015-10-30 09:10:00', '2015-10-30 09:18:00', 2, 1, 123, '2015-10-30'),
-(38, 'DavidGuillen', 3, '2015-10-30 01:10:31', '0000-00-00 00:00:00', 1, 1, 123, '2015-10-30'),
-(39, 'davdguillen', 4, '2015-10-30 01:10:19', '0000-00-00 00:00:00', 1, 1, 123, '2015-10-30'),
-(40, 'dasa', 5, '2015-10-30 01:10:40', '0000-00-00 00:00:00', 1, 1, 132, '2015-10-30'),
-(41, 'davidguillen vazquez', 6, '2015-10-30 01:10:58', '0000-00-00 00:00:00', 1, 1, 12345, '2015-10-30'),
-(42, 'David Guillen Vazquez', 7, '2015-10-30 01:10:49', '0000-00-00 00:00:00', 1, 1, 12345, '2015-10-30'),
-(43, 'David Guillen Vazquez', 8, '2015-10-30 01:10:45', '0000-00-00 00:00:00', 1, 1, 1234, '2015-10-30'),
-(44, 'a s', 9, '2015-10-30 01:10:26', '0000-00-00 00:00:00', 1, 1, 2, '2015-10-30'),
-(45, '12 12', 10, '2015-10-30 01:10:48', '0000-00-00 00:00:00', 1, 1, 12, '2015-10-30');
+(46, 'David Guillen Vazquez', 1, '2015-10-31 12:10:21', '0000-00-00 00:00:00', 2, 1, 13, '2015-10-31'),
+(47, 'David Guillen', 2, '2015-10-31 20:10:06', '0000-00-00 00:00:00', 2, 1, 1276038, '2015-10-31'),
+(48, 'Juan Marquez', 3, '2015-10-31 22:10:28', '0000-00-00 00:00:00', 2, 3, 12760328, '2015-10-31');
 
 -- --------------------------------------------------------
 
@@ -59,14 +55,20 @@ CREATE TABLE IF NOT EXISTS `carreras` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `carreras`
 --
 
 INSERT INTO `carreras` (`id`, `nombre`) VALUES
-(1, 'Ing. Sistemas Computacionales');
+(1, 'Ing. Electrónica'),
+(2, 'Ing. Electrómecanica'),
+(3, 'Ing. Gestión Empresarial'),
+(4, 'Ing. Industrial'),
+(5, 'Ing. Mecatrónica'),
+(6, 'Ing. Sistemas Computacionales'),
+(7, 'Lic. Administación');
 
 -- --------------------------------------------------------
 
