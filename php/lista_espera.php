@@ -1,7 +1,8 @@
 <?php
 /*	Include principal para la conexión a la base de datos*/
 include("conexion.php");
-$sqlGetLista = "SELECT nombre, turno, estado, carrera, ficha_inscripcion FROM alumnos";
+$Indice = date("Y-m-d");// Fecha actual, ejemplo 2015-12-31 23:59:59
+$sqlGetLista = "SELECT nombre, turno, estado, carrera, ficha_inscripcion FROM alumnos where indice ='".$Indice."'";
 $return_arr = array();
 
 $result = $conn->query($sqlGetLista); 
