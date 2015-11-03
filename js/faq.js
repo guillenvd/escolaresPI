@@ -26,7 +26,7 @@
          * Define some default settings
          */
         var defaults = {
-        	enableSearch: true,
+        	enableSearch: false,
         	enableToc: true,
         	enableStyling: true,
             //numberHtml: '{{#}}.',
