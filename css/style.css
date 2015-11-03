@@ -94,7 +94,7 @@ fieldset > .control-group >  label.checks {
 
 }
 
-/*-----------------------LISTA--------------------------------------*/
+/*-----------------------LISTA GUIA--------------------------------------*/
 
 #listaguia {
     counter-reset: li; 
@@ -149,11 +149,27 @@ fieldset > .control-group >  label.checks {
     transition: all .3s ease-out;
 }
 
+/*-----------------------BOTONES-------------------------------*/
+
+.th-ok{
+	background: #D0F5A9 !important;
+}
+/*
+.th-ok tr:hover{
+	background: #BEF781 !important;
+}
+*/
+.th-nook{
+	background: #F5BCA9 !important;
+}
+/*
+.th-nook tr:hover{
+	background: #F79F81 !important;
+}
+*/
 
 
 
-
-/*------------------------------------------------------------------
 [2. Navbar / .navbar]
 */
 

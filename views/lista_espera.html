@@ -6,7 +6,7 @@
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
-              <table class="table table-striped table-bordered">
+              <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th>Nombre del Alumno</th>
@@ -43,18 +43,19 @@
     function request(){
        $.get("php/lista_espera.php", function( data ) {
             var jsonResponse  = jQuery.parseJSON(data);
+            console.log(jsonResponse);
             var tablaDatos= $("#tableEspera");
                 tablaDatos.empty();
             $.each(jsonResponse, function(i,item){
-                     var datos =" <tr>"+
+                     var color=getClass(item.Estado, item.Ficha);
+                     var datos =" <tr class='"+color.color+"'>"+
                                         "<td>"+item.Nombre+"</td>"+
                                         "<td>"+item.Ficha+"</td>"+
                                         "<td>"+item.Turno+"</td>"+
                                         "<td>"+getEstado(item.Estado)+"</td>";
-                      if (){
-                          var botones = "<td class='td-actions'><a href='javascript:;' class='btn btn-small btn-success'  onclick='attended("+item.Ficha+")'><i class='btn-icon-only fa fa-check'> </i></a><a href='javascript:;' class='btn btn-danger btn-small' onclick='noPresent("+item.Ficha+")'><i class='btn-icon-only fa fa-times'> </i></a></td>"+
-                          "</tr>";
-                        }
+                     
+
+                     datos += color.botones;
                      tablaDatos.append(datos);
               });
         });
@@ -89,4 +90,25 @@ function noPresent(ficha) {
               request();
       });
     }
+    function getClass(estado,Ficha) {
+       var color ='';
+
+
+      if (estado == 1 ){
+          var botones = "<td class='td-actions'><a href='javascript:;' class='btn btn-small btn-success'  onclick='attended("+Ficha+")'><i class='btn-icon-only fa fa-check'> </i></a><a href='javascript:;' class='btn btn-danger btn-small' onclick='noPresent("+Ficha+")'><i class='btn-icon-only fa fa-times'> </i></a></td>"+
+          "</tr>";
+        }
+      else if(estado == 2){
+        color = 'th-ok';
+          var botones = "<td class='td-actions'><a href='javascript:;' class='btn btn-small btn-success disabled'><i class='btn-icon-only fa fa-check'> </i></a><a href='javascript:;' class='btn btn-danger btn-small disabled'><i class='btn-icon-only fa fa-times'> </i></a></td>"+
+          "</tr>";
+      }
+      else if(estado == 3){
+        color = 'th-nook';
+          var botones = "<td class='td-actions'><a href='javascript:;' class='btn btn-small btn-success disabled'><i class='btn-icon-only fa fa-check'> </i></a><a href='javascript:;' class='btn btn-danger btn-small disabled'><i class='btn-icon-only fa fa-times'> </i></a></td>"+
+          "</tr>";
+      }
+      return color={color:color, botones:botones};
+    }
+
 </script>
