@@ -22,7 +22,7 @@ $promedioTiempo=0; //Declaración de la variable del tiempo estimado
 
 //Scrips sql
 $sqlCoutn = "SELECT COUNT(turno) as atendidos FROM alumnos where estado = 2 and indice ='".$Indice."'"; //Query para contar a los alumnos atendidos
-$sqlGetprom = "SELECT * FROM alumnos where estado = 2 and indice ='".$Indice."'"; //Query para selecionar a todos los alumnos atendidos
+$sqlGetprom = "SELECT * FROM alumnos where indice ='".$Indice."'"; //Query para selecionar a todos los alumnos atendidos
 $sqlGetTurno = "SELECT count(id) as turno FROM alumnos WHERE  indice ='".$Indice."'";
 // ir por cantidad de alumnos
 	$result = $conn->query($sqlGetTurno); //ir por los aspirantes del día en curso
@@ -41,10 +41,15 @@ $sqlGetTurno = "SELECT count(id) as turno FROM alumnos WHERE  indice ='".$Indice
         	$sumaProm =0;
         	$resultProm = $conn->query($sqlGetprom);
 		    while($rowAtendidos = $resultProm->fetch_assoc()){
-		    	$time1 =  new DateTime($rowAtendidos['hora_inicio']);
-		    	$time2 =  new DateTime($rowAtendidos['hora_fin']);
-		        $suma = $time1->diff($time2); // tiempo que tardó en ser atendido x alumno
-		        $sumaProm += (int)$suma->format('%i'); //Suma de los alumnos
+				if($rowAtendidos['hora_fin'] != '0000-00-00 00:00:00'){	    	
+			    	$time1 =  new DateTime($rowAtendidos['hora_inicio']);
+			    	$time2 =  new DateTime($rowAtendidos['hora_fin']);
+			        $suma = $time1->diff($time2); // tiempo que tardó en ser atendido x alumno
+			        $sumaProm += (int)$suma->format('%i'); //Acumolador de tiempo estimado.
+			    }
+			    else{
+			        $sumaProm += (int)$rowAtendidos['tiempo_estimado']; 
+			    }
 		    }
 		    $promedioTiempo=ceil( $sumaProm  / $resultProm->num_rows) ; //promedio de todos los tiempos, se redondea a su entero más proximo
         }
@@ -54,8 +59,8 @@ $sqlGetTurno = "SELECT count(id) as turno FROM alumnos WHERE  indice ='".$Indice
         }
     }
 
-	$sql = "INSERT INTO alumnos (nombre,turno,hora_inicio,estado,carrera,ficha_inscripcion,indice) 
-	VALUES ('".$FullName."',".$turnos.",'".$Date."',1,".$Carrera.",".$Ficha.",'".$Indice."' );";
+	$sql = "INSERT INTO alumnos (nombre,turno,hora_inicio,estado,carrera,ficha_inscripcion,indice, tiempo_estimado) 
+	VALUES ('".$FullName."',".$turnos.",'".$Date."',1,".$Carrera.",".$Ficha.",'".$Indice."', ".$promedioTiempo." );";
 	if ($conn->query($sql) === TRUE) {
 		$bandera =1;
 	} 

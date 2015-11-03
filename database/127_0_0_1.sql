@@ -1,25 +1,23 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2015 a las 07:06:22
--- Versión del servidor: 5.6.16
--- Versión de PHP: 5.5.11
+-- Host: localhost
+-- Generation Time: Nov 03, 2015 at 09:42 PM
+-- Server version: 5.5.24-log
+-- PHP Version: 5.4.3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Base de datos: `escolarespi_db`
+-- Database: `escolarespi_db`
 --
-CREATE DATABASE IF NOT EXISTS `escolarespi_db` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `escolarespi_db`;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumnos`
+-- Table structure for table `alumnos`
 --
 
 CREATE TABLE IF NOT EXISTS `alumnos` (
@@ -28,27 +26,30 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
   `turno` int(4) NOT NULL,
   `hora_inicio` datetime NOT NULL,
   `hora_fin` datetime NOT NULL,
+  `tiempo_estimado` int(2) NOT NULL,
   `estado` int(12) NOT NULL,
   `carrera` int(12) NOT NULL,
   `ficha_inscripcion` int(10) NOT NULL,
   `indice` varchar(12) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `carreraFk` (`carrera`) COMMENT 'Carrera de inscripción'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
 
 --
--- Volcado de datos para la tabla `alumnos`
+-- Dumping data for table `alumnos`
 --
 
-INSERT INTO `alumnos` (`id`, `nombre`, `turno`, `hora_inicio`, `hora_fin`, `estado`, `carrera`, `ficha_inscripcion`, `indice`) VALUES
-(46, 'David Guillen Vazquez', 1, '2015-10-31 12:10:21', '0000-00-00 00:00:00', 2, 1, 13, '2015-10-31'),
-(47, 'David Guillen', 2, '2015-10-31 20:10:06', '0000-00-00 00:00:00', 2, 1, 1276038, '2015-10-31'),
-(48, 'Juan Marquez', 3, '2015-10-31 22:10:28', '0000-00-00 00:00:00', 2, 3, 12760328, '2015-10-31');
+INSERT INTO `alumnos` (`id`, `nombre`, `turno`, `hora_inicio`, `hora_fin`, `tiempo_estimado`, `estado`, `carrera`, `ficha_inscripcion`, `indice`) VALUES
+(53, 'ivan gastelum', 1, '2015-11-03 13:11:16', '2015-11-03 13:27:22', 11, 2, 6, 1, '2015-11-03'),
+(54, 'David Guillens', 2, '2015-11-03 13:11:38', '2015-11-03 13:52:11', 11, 2, 3, 2, '2015-11-03'),
+(58, 'ivan romero', 3, '2015-11-03 13:11:02', '2015-11-03 13:25:48', 15, 2, 3, 5, '2015-11-03'),
+(60, 'ivan gasdsets', 4, '2015-11-03 13:11:04', '2015-11-03 13:25:59', 29, 2, 6, 6, '2015-11-03'),
+(61, 'juan juanca', 5, '2015-11-03 13:11:24', '2015-11-03 13:27:26', 25, 2, 2, 56, '2015-11-03');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carreras`
+-- Table structure for table `carreras`
 --
 
 CREATE TABLE IF NOT EXISTS `carreras` (
@@ -58,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `carreras` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- Volcado de datos para la tabla `carreras`
+-- Dumping data for table `carreras`
 --
 
 INSERT INTO `carreras` (`id`, `nombre`) VALUES
@@ -73,7 +74,7 @@ INSERT INTO `carreras` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `login`
+-- Table structure for table `login`
 --
 
 CREATE TABLE IF NOT EXISTS `login` (
@@ -85,11 +86,11 @@ CREATE TABLE IF NOT EXISTS `login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `alumnos`
+-- Constraints for table `alumnos`
 --
 ALTER TABLE `alumnos`
   ADD CONSTRAINT `carreraFk` FOREIGN KEY (`carrera`) REFERENCES `carreras` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

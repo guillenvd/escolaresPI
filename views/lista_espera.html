@@ -46,14 +46,16 @@
             var tablaDatos= $("#tableEspera");
                 tablaDatos.empty();
             $.each(jsonResponse, function(i,item){
-                     var registro =" <tr>"+
+                     var datos =" <tr>"+
                                         "<td>"+item.Nombre+"</td>"+
                                         "<td>"+item.Ficha+"</td>"+
                                         "<td>"+item.Turno+"</td>"+
-                                        "<td>"+getEstado(item.Estado)+"</td>"+
-                                        "<td class='td-actions'><a href='javascript:;' class='btn btn-small btn-success'  onclick='attended("+item.Ficha+")'><i class='btn-icon-only fa fa-check'> </i></a><a href='javascript:;' class='btn btn-danger btn-small' onclick='noPresent("+item.Ficha+")'><i class='btn-icon-only fa fa-times'> </i></a></td>"+
-                                        "</tr>";
-                     tablaDatos.append(registro);
+                                        "<td>"+getEstado(item.Estado)+"</td>";
+                      if (){
+                          var botones = "<td class='td-actions'><a href='javascript:;' class='btn btn-small btn-success'  onclick='attended("+item.Ficha+")'><i class='btn-icon-only fa fa-check'> </i></a><a href='javascript:;' class='btn btn-danger btn-small' onclick='noPresent("+item.Ficha+")'><i class='btn-icon-only fa fa-times'> </i></a></td>"+
+                          "</tr>";
+                        }
+                     tablaDatos.append(datos);
               });
         });
     }
