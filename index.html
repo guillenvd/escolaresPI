@@ -28,7 +28,6 @@
 </div> <!-- /navbar -->
 <div class="account-container">
 	<div class="content clearfix">
-		<form action="escolarespi.html" method="post" onsubmit="return login();">
 			<h1 style="text-align: center;">EscolaresPI</h1>		
 			<div class="login-fields">				
 				<div class="field">
@@ -41,10 +40,20 @@
 				</div> <!-- /password -->
 			</div> <!-- /login-fields -->
 			<div class="login-actions" style="text-align: center !important; margin-top: 10px;">
-				<button class="btn btn-success btn-large">Login</button>
+				<button class="btn btn-success btn-large" onclick="login();">Login</button>
 			</div> <!-- .actions -->
-	</form>
+
 	</div> <!-- /content -->
+	<div class="control-group" id="alerta">
+		<div class="controls">
+			<div class="alert">
+	          <button type="button" class="close" onclick="$('#alerta').hide()">
+	          	&times;
+	          </button>
+	          <strong>Ooops!</strong> Verifique su usuario y password.
+	        </div>
+	    </div>
+	</div>
 </div> <!-- /account-container -->
 
 <script src="js/jquery-1.7.2.min.js"></script>
@@ -53,13 +62,22 @@
 
 <script type="text/javascript">
   function login () {
-    if($('#username').val()=='' && $('#password').val()=='') {
-      localStorage.setItem("user", $('#username').val());
-      return true;
-      }else{
-        return false; 
-      }
+  	$.get("php/userLogin.php",{user:$('#username').val(), pass:$('#password').val()} ,function( data ) {
+		  	var jsonResponse  = jQuery.parseJSON(data);
+		  	if(jsonResponse.estado == 1) {
+			    localStorage.setItem("user", $('#username').val());
+			    window.location.href = "escolarespi.html";
+		      }
+		     else{
+		       		$('#alerta').show();
+		      }
+		});
+
     }  
+
+    $(document).ready(function (){
+		$('#alerta').hide();
+});
 </script>
 </body>
 </html>
