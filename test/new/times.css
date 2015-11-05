@@ -1,0 +1,117 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input:focus { 
+    background-color: rgb(152, 255, 147);
+}
+body {
+		background-color: rgb(215, 233, 255);
+		background-image: url("http://blog.saluspot.com/wp-content/uploads/2013/04/reloj-antiguo.jpg");
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-attachment: fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		padding: 0% 10% 0% 10%;
+}
+
+.titulo-pricipal {
+		color: rgb(6, 98, 249);
+		font-size: 60px;
+		font-weight: bold;
+		font-family: Lobster, Monospace, Sans-Serif;
+		background-color: rgb(255, 255, 255);
+		opacity: 0.85;
+		border-radius: 10px;
+		padding: 5px 0px;
+}
+
+.secciones {
+		margin: 10px 0px 10px 0px;
+		padding: 0px;
+}
+
+.seccion {
+		background-color: transparent;
+		opacity: 0.80;
+		margin: 0px 0px 0px 0px;
+		padding: 0px 0px 0px 0px;
+}
+
+.config {
+		color: rgb(255, 255, 255);
+		font-size: 25px;
+		font-weight: bold;
+		background-color: rgb(96, 154, 251);
+		display: block;
+		padding: 0px 0px 0px 0px;
+		border-radius: 10px 10px 0px 0px;
+}
+
+.number {
+		font-size: 30px;
+		font-weight: bold;
+		display: block;
+		padding: 0px 0px 0px 0px;
+		margin: 0px;
+}
+
+.izquierda {
+		margin: 0px 15px 0px 0px;
+}
+
+.derecha {
+		margin: 0px 0px 0px 35px;
+}
+
+.options {
+		font-size: 25px;
+		font-weight: bold;
+		background-color: rgb(255, 255, 255);
+		padding: 10px 0px 10px 0px;
+		border-radius: 0px 0px 10px 10px;
+}
+
+.tiempo-ext {
+		background-color: rgb(152, 255, 147);
+		border-radius: 50%;
+		width: 350px;
+		height: 350px;
+		margin: auto;
+		padding: 8px 0px 0px 8px;
+		opacity: 0.92;
+}
+
+.tiempo-int {
+		background-color: rgb(150, 150, 150);
+		border-radius: 50%;
+		width: 334px;
+		height: 334px;
+		padding: 3px 0px 0px 3px;
+}
+
+.tiempo {
+		background: linear-gradient(to top, rgb(253, 150, 132) 0%, rgb(253, 150, 132) 0%, rgb(152, 255, 147) 0%, rgb(152, 255, 147) 100%);
+		border-radius: 50%;
+		width: 328px;
+		height: 328px;
+		color: rgb(255, 255, 255);
+		font-size: 65px;
+}
+
+.flechas {
+		font-size: 18px;
+		background-color: rgb(211, 235, 254);
+}
+
+.vertical-center {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+}
