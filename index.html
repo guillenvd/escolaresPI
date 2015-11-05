@@ -14,51 +14,45 @@
     <link href="css/pages/signin.css" rel="stylesheet">
     <link href="css/pages/dashboard.css" rel="stylesheet">
 </head>
-<body>
-	<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-		</div> <!-- /container -->
-	</div> <!-- /navbar-inner -->
-</div> <!-- /navbar -->
-<div class="account-container">
-	<div class="content clearfix">
-			<h1 style="text-align: center;">EscolaresPI</h1>		
-			<div class="login-fields">				
-				<div class="field">
-					<label for="username">Username</label>
-					<input type="text" id="username" name="username" value="" placeholder="Username" class="login username-field" />
-				</div> <!-- /field -->	
-				<div class="field">
-					<label for="password">Password:</label>
-					<input type="password" id="password" name="password" value="" placeholder="Password" class="login password-field"/>
-				</div> <!-- /password -->
-			</div> <!-- /login-fields -->
-			<div class="login-actions" style="text-align: center !important; margin-top: 10px;">
-				<button class="btn btn-success btn-large" onclick="login();">Login</button>
-			</div> <!-- .actions -->
+<body id="loginbkg"> <br>
+<div class="container-fluid">
+		<div class="account-container">
+			<div class="content clearfix">
+				<center><img src="img/logo-escolarespi.png" width="65%" ></center>
+					<h1 style="text-align: center;">EscolaresPI</h1>		
+					<div class="login-fields">				
+						<div class="field">
+							<label for="username">Usuario:</label>
+							<input type="text" id="username" name="username" value="" placeholder="Usuario" class="login username-field" />
+						</div> <!-- /field -->	
+						<div class="field">
+							<label for="password">Contraseña:</label>
+							<input type="password" id="password" name="password" value="" placeholder="Contraseña" class="login password-field"/>
+						</div> <!-- /password -->
+					</div> <!-- /login-fields -->
+					<div class="login-actions" style="text-align: center !important; margin-top: 10px;">
+						<button class="btn btn-success btn-large" onclick="login();">Login</button>
+					</div> <!-- .actions -->
+			</div> <!-- /content -->
+			<div class="control-group" id="alerta">
+				<div class="controls">
+					<div class="alert">
+			          <button type="button" class="close" onclick="$('#alerta').hide()">
+			          	&times;
+			          </button>
+			          <strong>Ooops!</strong> Verifique su usuario y password.
+			        </div>
+			    </div>
+			</div>
+		</div> <!-- /account-container -->
 
-	</div> <!-- /content -->
-	<div class="control-group" id="alerta">
-		<div class="controls">
-			<div class="alert">
-	          <button type="button" class="close" onclick="$('#alerta').hide()">
-	          	&times;
-	          </button>
-	          <strong>Ooops!</strong> Verifique su usuario y password.
-	        </div>
-	    </div>
-	</div>
-</div> <!-- /account-container -->
+</div>
 
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/base.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+
 
 <script type="text/javascript">
   function login () {
@@ -81,6 +75,13 @@
 			    window.location.href = "escolarespi.html";
         }
 });
+        jQuery("#loginbkg").backstretch([
+                "img/ite-0.jpg"
+              , "img/ite-1.jpg"
+              , "img/ite-2.jpg"
+            ], {duration: 4000, fade: 1000});
+
+        jQuery("#bodybg").backstretch("img/.jpg");
 </script>
 </body>
 </html>
