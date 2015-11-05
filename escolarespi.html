@@ -136,10 +136,12 @@
 <script src="js/base.js"></script> 
 <script>     
       $(document).ready(function() {
-        console.log(localStorage.getItem('user'));
+        if(!localStorage.getItem('user') ){
+            window.location.href = "index.html";
+        }
       });
       function logout() {
-                console.log(localStorage.getItem('user'));
+          localStorage.removeItem('user');
           window.location.href = "index.html";
 
       }

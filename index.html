@@ -77,6 +77,9 @@
 
     $(document).ready(function (){
 		$('#alerta').hide();
+		if(localStorage.getItem('user') ){
+			    window.location.href = "escolarespi.html";
+        }
 });
 </script>
 </body>
