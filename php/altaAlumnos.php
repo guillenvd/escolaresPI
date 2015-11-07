@@ -16,7 +16,7 @@ $Ficha = $_GET["Ficha"];
 $Carrera = $_GET["Carrera"];
 
 
-$Date = date("Y-m-d H:m:s");// Fecha actual, ejemplo 2015-12-31 23:59:59
+$Date = date("Y-m-d H:i:s");// Fecha actual, ejemplo 2015-12-31 23:59:59
 $Indice = date("Y-m-d");// Fecha actual, ejemplo 2015-12-31 23:59:59
 $promedioTiempo=0; //Declaración de la variable del tiempo estimado
 
