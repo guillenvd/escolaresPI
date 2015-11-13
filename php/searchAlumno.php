@@ -17,6 +17,7 @@ $estado = 0;
 	} else {
 	    $estado = 1;
 	}
+$conn->close();
 	$arrayName = array('estado' => $estado ,'Alumno' => $alumno);
 	echo json_encode($arrayName);
 ?>

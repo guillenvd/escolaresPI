@@ -21,7 +21,7 @@
 					<div id="display" class="tiempo">
 						<p class="text-center vertical-center">
 							<span id="leyenda">Numero de Turno</span><br>					
-							<span id="time">9</span>
+							<span id="time">0</span>
 						</p>				
 					</div>
 				</div>
@@ -39,13 +39,13 @@
 					<span class="config derecha">Ficha de Inscripción</span>
 						<p class="options derecha" >
 							<span>
-								<input type="number" placeholder="# Ficha" id="n_ficha" class="form-control options"  disabled="true">
+								<input type="number" placeholder="# Ficha" id="n_ficha" class="form-control options"  disabled="false">
 							</span> 
 						</p>
 				</div>		
 			</div>	
 		</div> <!-- Contenedor principal -->
-
+		<input type="hidden" id='nficha' val=''>
 		<audio id="timer-beep">
 		  <source src="sounds/next2.wav"/>
 		  <source src="sounds/Bleep-pass.mp3"/>
@@ -54,6 +54,7 @@
 <script src="jquery.backstretch.min.js"></script>
 
 <script type="text/javascript">
+
 	        jQuery("#clockbkg").backstretch([
                 "img/clock1.jpg"
               , "img/clock3.jpg"

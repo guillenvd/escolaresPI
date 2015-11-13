@@ -11,7 +11,7 @@ $sqlGetTurno = "SELECT count(id) as totalAlumnos FROM alumnos WHERE  indice ='".
 	    while($row = $result->fetch_assoc()) {
 	    	$total = $row["totalAlumnos"];
 	    }
-
+$conn->close();
 	$json = array("totalAlumnos" =>$total );
 	echo json_encode($json);
 ?>

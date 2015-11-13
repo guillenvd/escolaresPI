@@ -10,7 +10,7 @@ $result = $conn->query($sqlGetLista);
 		$array = array('Nombre' =>$row['nombre'],'Turno' =>$row['turno'],'Estado' =>$row['estado'],'Carrera' =>$row['carrera'],'Ficha' =>$row['ficha_inscripcion']);
 	    array_push($return_arr,$array);
 	}
-
+$conn->close();
 	$array = json_encode($return_arr);
 	echo $array;
 

@@ -13,6 +13,7 @@ $estado = 0;
 	} else {
 	    $estado = 0;
 	}
+$conn->close();
 	$arrayName = array('estado' => $estado);
 	echo json_encode($arrayName);
 ?>

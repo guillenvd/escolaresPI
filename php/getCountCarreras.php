@@ -17,6 +17,6 @@ $sqlGetTurno = "SELECT sum(case when carrera = 1 then 1 else 0 end) Electronica,
 	    while($row = $result->fetch_assoc()) {
 	    		$total = array('Electronica' =>$row['Electronica'],'Electromecanica' =>$row['Electromecanica'],'Gestion' =>$row['Gestion'],'Industrial' =>$row['Industrial'],'Mecatronica' =>$row['Mecatronica'],'Sistemas' =>$row['Sistemas'],'Administacion' =>$row['Administacion']);
 	    }
-
+$conn->close();
 	echo json_encode($total);
 ?>

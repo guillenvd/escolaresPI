@@ -71,8 +71,8 @@ function loadguia(){
 }
 
 function loadClock(){
-	$("#content").load("views/clock.html");
-	$('#1').attr("class", "");
+    window.open("http://localhost/universidad/escolares/test/new/turnos.html",'_blank','fullscreen=yes,directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width='+$( window ).width()+',height='+$( window ).height()+'');	
+    $('#1').attr("class", "");
 	$('#2').attr("class", "");
 	$('#3').attr("class", ""); 
 	$('#4').attr("class", "");

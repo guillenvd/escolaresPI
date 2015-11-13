@@ -13,6 +13,7 @@ if ($conn->query($sqlUpdate) === TRUE) {
 } else {
 	$return_arr = array('check' =>0);
 }
+$conn->close();
 	$array = json_encode($return_arr);
 	echo $array
 
