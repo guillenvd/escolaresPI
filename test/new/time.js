@@ -1,6 +1,7 @@
     var tiempo = {  hora: 0, minuto: 0, segundo:0  };      
     var inter = null;
     var request = null;
+    var initRequest = null;
     function time(){ 
         if(tiempo.segundo > 0){
             tiempo.segundo --;
@@ -38,9 +39,9 @@
                     $('#time').text(jsonResponse.Alumno.turno);
                     inter = setInterval(function(){time()},1000);
                     clearInterval(request);
+                    clearInterval(initRequest);
                 }
                 else{
-                    connsole.log('no se encontro nada');
                 }                    
             });
     }
@@ -61,6 +62,7 @@
                 tiempo.minuto = jsonResponse.Alumno.tiempo;
                 $('#time').text(jsonResponse.Alumno.turno);
                 inter = setInterval(function(){time()},1000);
+                $('#n_ficha').val('');
              }                    
          });
     }
@@ -68,6 +70,8 @@
 
 $(document).ready(function () {
     searchAlumno($('#time').text());
+    initRequest = setInterval(function(){searchAlumno($('#time').text());},5000);
+
     //window.history.pushState("VENTANA DE TURNOS", "VENTANA DE TURNOS", "/ventanaDeTurnos");
 });
 
