@@ -71,7 +71,7 @@ function loadguia(){
 }
 
 function loadClock(){
-    window.open("http://localhost/universidad/escolares/test/new/turnos.html",'_blank','fullscreen=yes,directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width='+$( window ).width()+',height='+$( window ).height()+'');	
+    window.open("http://localhost/escolaresPI/test/new/turnos.html",'_blank','fullscreen=yes,directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width='+$( window ).width()+',height='+$( window ).height()+'');	
     $('#1').attr("class", "");
 	$('#2').attr("class", "");
 	$('#3').attr("class", ""); 
