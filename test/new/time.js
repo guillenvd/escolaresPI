@@ -63,6 +63,7 @@
                 $('#time').text(jsonResponse.Alumno.turno);
                 inter = setInterval(function(){time()},1000);
                 $('#n_ficha').val('');
+                document.getElementById('timer-beep' ).play();
              }                    
          });
     }
