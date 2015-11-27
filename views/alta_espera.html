@@ -16,68 +16,109 @@
       		<form id="edit-profile" class="form-horizontal">
 					<fieldset>
                             <div class="control-group">											
-								<label class="control-label checks">CERTIFICADO DE BACHILLERATO O EQUIVALENTE</label>
+								<label class="control-label checks">
+									CERTIFICADO DE BACHILLERATO O EQUIVALENTE
+									<a  id='trigger' name="certificado">	
+										<i class="fa fa-question-circle"></i>
+									</a>
+								</label>
                                 <div class="controls">
-                                <label class="checkbox inline">
-                                  <input type="checkbox" name="docs[]">
+                                <label class="inline">
+                                  <input type="checkbox" class="checkbox" name="docs[]" id="docs">
                                 </label>
                               </div>		
 							</div> 
 
                             <div class="control-group">											
-								<label class="control-label checks">ACTA DE NACIMIENTO</label>
+								<label class="control-label checks">
+									ACTA DE NACIMIENTO
+									<a  id='trigger' name="acta">	
+										<i class="fa fa-question-circle"></i>
+									</a>
+								</label>
                                 <div class="controls">
-                                <label class="checkbox inline">
-                                  <input type="checkbox" name="docs[]">
+                                <label class="inline">
+                                  <input type="checkbox" class="checkbox" name="docs[]" id="docs">
                                 </label>
                               </div>		
 							</div> 
 
 							<div class="control-group">											
-								<label class="control-label checks">DICTAMEN DE REVALIDACIÓN O EQUIVALENCIA DE ESTUDIOS</label>
+								<label class="control-label checks">
+									DICTAMEN DE REVALIDACIÓN O EQUIVALENCIA DE ESTUDIO
+									<a  id='trigger' name="dictamen">	
+										<i class="fa fa-question-circle"></i>
+									</a>
+								</label>
                                 <div class="controls">
-                                <label class="checkbox inline">
-                                  <input type="checkbox" name="docs[]">
+                                <label class="inline">
+                                  <input type="checkbox" class="checkbox" name="docs[]" id='dictamen'>
                                 </label>
                               </div>		
 							</div> 
 							<div class="control-group">										
-								<label class="control-label checks">CURP</label>
+								<label class="control-label checks">
+									CURP
+									<a  id='trigger' name="curp">	
+										<i class="fa fa-question-circle"></i>
+									</a>
+								</label>
                                 <div class="controls">
-                                <label class="checkbox inline">
-                                  <input type="checkbox" name="docs[]">
+                                <label class="inline">
+                                  <input type="checkbox" class="checkbox" name="docs[]" id="docs">
                                 </label>
                               </div>		
 							</div>
 							<div class="control-group">										
-								<label class="control-label checks">COPIA DE COMPROBANTE DE CUOTA POR CONCEPTO DE INSCRIPCIÓN</label>
+								<label class="control-label checks">
+									COPIA DE COMPROBANTE DE CUOTA POR CONCEPTO DE INSCRIPCIÓN
+									<a  id='trigger' name="cuota">	
+										<i class="fa fa-question-circle"></i>
+									</a>
+								</label>
                                 <div class="controls">
-                                <label class="checkbox inline">
-                                  <input type="checkbox" name="docs[]">
+                                <label class="inline">
+                                  <input type="checkbox" class="checkbox" name="docs[]" id="docs">
                                 </label>
                               </div>		
 							</div>
 							<div class="control-group">										
-								<label class="control-label checks">COPIA DE FORMA FM 9 (EN CASO DE SER EXTRANJERO)</label>
+								<label class="control-label checks">
+									COPIA DE FORMA FM 9 (EN CASO DE SER EXTRANJERO)
+									<a  id='trigger' name="fm9">	
+										<i class="fa fa-question-circle"></i>
+									</a>
+		
+								</label>
                                 <div class="controls">
-                                <label class="checkbox inline">
-                                  <input type="checkbox" name="docs[]">
+                                <label class="inline">
+                                  <input type="checkbox" class="checkbox" name="docs[]" id="fm9">
                                 </label>
                               </div>		
 							</div>
 							<div class="control-group">										
-								<label class="control-label checks">6 FOTOGRAFÍAS RECIENTES</label>
+								<label class="control-label checks">
+									6 FOTOGRAFÍAS RECIENTES
+									<a  id='trigger' name="fotos">	
+										<i class="fa fa-question-circle"></i>
+									</a>
+								</label>
                                 <div class="controls">
-                                <label class="checkbox inline">
-                                  <input type="checkbox" name="docs[]">
+                                <label class="inline">
+                                  <input type="checkbox" class="checkbox" name="docs[]" id="docs">
                                 </label>
                               </div>		
 							</div>
 							<div class="control-group">										
-								<label class="control-label checks">CERTIFICADO MÉDICO</label>
+								<label class="control-label checks">
+									CERTIFICADO MÉDICO
+									<a  id='trigger' name="medico">	
+										<i class="fa fa-question-circle"></i>
+									</a>
+								</label>
                                 <div class="controls">
-                                <label class="checkbox inline">
-                                  <input type="checkbox" name="docs[]">
+                                <label class="inline">
+                                  <input type="checkbox" class="checkbox" name="docs[]" id="docs">
                                 </label>
                               </div>		
 							</div>
@@ -169,14 +210,72 @@
   </div>
 </div>
 
-<script>
+     
+      <div id="certificado" class="pop-up">
+        <h3>Certificado de univerisad</h3>
+        <p class="text-pop-up">
+          En caso de no contar con el certificado se puede dejar algún documento 
+          que compruebe la liberación de materias del nivel basico-superior.
+        </p>
+      </div>
+      <div id="acta" class="pop-up">
+        <h3>Acta de nacimiento</h3>
+        <p class="text-pop-up">
+          Se requiere copia y orginal
+        </p>
+      </div>
+      <div id="dictamen" class="pop-up">
+        <h3>Dictamen de revalidación</h3>
+        <p class="text-pop-up">
+          En caso de provenir de algúna otra universidad.
+        </p>
+      </div>
+      <div id="curp" class="pop-up">
+        <h3>CURP</h3>
+        <p class="text-pop-up">
+          Se requiere copia
+        </p>
+      </div>
+      <div id="cuota" class="pop-up">
+        <h3>Comprobante de cuota por el concepo de inscripción</h3>
+        <p class="text-pop-up">
+          Se requiere copia del comprobante del pago por el concepto de inscripción
+        </p>
+      </div>
+
+      <div id="fm9" class="pop-up">
+        <h3>Forma FM 9</h3>
+        <p class="text-pop-up">
+          Solo en caso de ser extranjero
+        </p>
+      </div>
+      <div id="fotos" class="pop-up">
+        <h3>Fotografías</h3>
+        <p class="text-pop-up">
+          Se requieren como minimo 6 fotografías recientes (6 mese como maximo), ya sea en blanco y negro o a color.
+        </p>
+      </div>
+      <div id="medico" class="pop-up">
+        <h3>Certificado medico</h3>
+        <p class="text-pop-up">
+          Se requiere un certificado medico ya este puede ser de los siguientes lugares.
+        </p>
+      </div>
+      <div id="certificado" class="pop-up">
+        <h3>Certificado de univerisad</h3>
+        <p class="text-pop-up">
+          En caso de no contar con el certificado se puede dejar algún documento 
+          que compruebe la liberación de materias del nivel basico-superior.
+        </p>
+      </div>
+      <script>
 	$(".checkbox").change(function() {
 		var checked = [];
-		$("input:checked").each(function() {
-		  checked.push($(this).val());
+		$("input:checked").each(function(i) {
+		  	if($(this).prop('id')=='docs')
+		  		checked.push($(this).val());
 		});
-
-		if(checked.length==8){
+		if(checked.length ==6 ){
 			$( "#n_ficha" ).removeProp( "disabled" );
 			$( "#nombre" ).removeProp( "disabled" );
 			$( "#apellidos" ).removeProp( "disabled" );
@@ -245,4 +344,21 @@
 		  	    selectCarreras.append(carreras);
 		});
 	});
+
+	 $(function() {
+        var moveLeft = 20;
+        var moveDown = 10;
+        
+        $('a#trigger').hover(function(e) {
+          $('div#'+$(this).prop('name')).show().css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft).appendTo('body');
+        	}, 
+        	function() {
+          		$('div#'+$(this).prop('name')).hide();
+        	});
+        
+        $('a#trigger').mousemove(function(e) {
+          $("div#"+$(this).prop('name')).css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
+        });
+        
+      });
 </script>

@@ -3,6 +3,7 @@
     var request = null;
     var initRequest = null;
     function time(){ 
+        checkStatus();
         if(tiempo.segundo > 0){
             tiempo.segundo --;
         }
@@ -68,7 +69,22 @@
          });
     }
 
-
+ function checkStatus(){
+        var parameter = {Turno:parseInt($('#time').text()),Get:3, Ficha:$('#n_ficha').val()};
+        $.get("http://localhost/universidad/escolares/php/turnos.php", parameter ,function( data ) {
+            var jsonResponse  = jQuery.parseJSON(data);
+            if(jsonResponse.estado ==2 || jsonResponse.estado == 3) {
+                tiempo = {  hora: 0, minuto: 0, segundo:0  };
+                $("#testdivH").text('00');
+                $("#testdivM").text('00');
+                $("#testdivS").text('00');
+                clearInterval(inter);
+                initRequest = setInterval(function(){searchAlumno($('#time').text());},500);
+                $.growl.notice({ message: "Siguiente turno." });
+                document.getElementById('timer-beep' ).play();
+             }                    
+         });
+    }
 $(document).ready(function () {
     searchAlumno($('#time').text());
     initRequest = setInterval(function(){searchAlumno($('#time').text());},5000);
