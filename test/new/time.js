@@ -30,10 +30,8 @@
     }
     function searchAlumno(num) {
             var parameter = {Turno:num,Get:1};
-            console.log(parameter);
             $.get("http://localhost/universidad/escolares/php/turnos.php", parameter ,function( data ) {
                 var jsonResponse  = jQuery.parseJSON(data);
-                console.log(jsonResponse);
                 if(jsonResponse.estado==0) {
                     $('#nficha').val(jsonResponse.Alumno.ficha);
                     tiempo.minuto = jsonResponse.Alumno.tiempo;
@@ -48,10 +46,8 @@
     }
     function checkInning(){
         var parameter = {Turno:parseInt($('#time').text()),Get:2, Ficha:$('#n_ficha').val()};
-        console.log(parameter);
         $.get("http://localhost/universidad/escolares/php/turnos.php", parameter ,function( data ) {
             var jsonResponse  = jQuery.parseJSON(data);
-            console.log(jsonResponse);
             if(jsonResponse.estado==1) {
                 $.growl.error({ message: "Verifique que su ficha de inscripción sea la correcta." });
             }
@@ -74,6 +70,8 @@
         $.get("http://localhost/universidad/escolares/php/turnos.php", parameter ,function( data ) {
             var jsonResponse  = jQuery.parseJSON(data);
             if(jsonResponse.estado ==2 || jsonResponse.estado == 3) {
+                            $( "#n_ficha" ).prop({disabled: false});
+
                 tiempo = {  hora: 0, minuto: 0, segundo:0  };
                 $("#testdivH").text('00');
                 $("#testdivM").text('00');

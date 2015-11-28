@@ -6,7 +6,7 @@
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
-              <table class="table table-bordered">
+              <table class="table table-bordered" id="myTable">
                 <thead>
                   <tr>
                     <th>Nombre del Alumno</th>
@@ -17,13 +17,7 @@
                   </tr>
                 </thead>
                 <tbody id="tableEspera">
-                  <tr>
-                    <td>David Guillen Vazquez</td>
-                    <td>1234</td>
-                    <td>15 min</td>
-                    <td>Espera</td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only fa fa-check"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only fa fa-times"> </i></a></td>
-                  </tr>
+                 
                 </tbody>
               </table>
             </div>
@@ -33,6 +27,8 @@
         <!-- /span6 --> 
       </div>
       <!-- /row -->
+<link rel="stylesheet" type="text/css" href="css/datatables.min.css"/>
+<script type="text/javascript" src="js/datatables.min.js"></script>
 
 
 <script>
@@ -43,7 +39,6 @@
     function request(){
        $.get("php/lista_espera.php", function( data ) {
             var jsonResponse  = jQuery.parseJSON(data);
-            console.log(jsonResponse);
             var tablaDatos= $("#tableEspera");
                 tablaDatos.empty();
             $.each(jsonResponse, function(i,item){
@@ -58,6 +53,10 @@
                      datos += color.botones;
                      tablaDatos.append(datos);
               });
+
+             $('#myTable').DataTable({
+                  "order":false                  
+                } );
         });
     }
 

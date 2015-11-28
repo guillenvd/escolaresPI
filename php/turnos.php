@@ -47,14 +47,18 @@ function checkNextInning($conexion,$turno){
 			$turno = (int)$_GET['Turno'];
 		}
 		$Indice = date("Y-m-d");// Fecha actual, ejemplo 2015-12-31 23:59:59
-		$sqlGetTurno = "SELECT * FROM alumnos WHERE estado = 1 and indice = '".$Indice."' and ficha_inscripcion ='".$_GET['Ficha']."' and turno =".((int)$turno+1)." and turno!=".((int)$turno);
+		$sqlGetTurno = "SELECT * FROM alumnos WHERE estado = 1 and indice ='".$Indice ."' and turno !=".(int)$_GET['Turno']." order by turno asc limit 1";
 		$estado =1;
 		$result = $conexion->query($sqlGetTurno);
 			if ($result->num_rows != 0) {
-				$fin = date("Y-m-d H:i:s");// Fecha actual, ejemplo 2015-12-31 23:59:59
-				$sqlUpdate = "UPDATE alumnos SET estado=2, hora_fin='".$fin."' WHERE turno=".((int)$turno)." and indice='".$Indice."'";
-				$conexion->query($sqlUpdate);
-			   return getCurrentInning($conexion);
+				 while($row = $result->fetch_assoc()) {
+				 		if($row['ficha_inscripcion']==$_GET['Ficha']){
+							$fin = date("Y-m-d H:i:s");// Fecha actual, ejemplo 2015-12-31 23:59:59
+							$sqlUpdate = "UPDATE alumnos SET estado=2, hora_fin='".$fin."' WHERE turno=".((int)$_GET['Turno'])." and indice='".$Indice."'";
+							$conexion->query($sqlUpdate);
+			   				return getCurrentInning($conexion);
+			   			}
+			   		}
 			}
 		//$conexion->close();
 		$arrayName = array('estado' => $estado );
